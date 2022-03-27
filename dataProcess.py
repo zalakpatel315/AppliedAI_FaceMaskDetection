@@ -41,7 +41,7 @@ def im_convert(tensor):
 
 
 def get_data_split(folder_path, batch_size):
-    splitfolders.ratio(folder_path, output="output", seed=80, ratio=(.8, 0.1,0.1)) 
+    splitfolders.ratio(folder_path, output="output", seed=80, ratio=(.7, 0.2, 0.1))
     #train, test = train_test_split(dataset,test_size=0.25, random_state=30)
     dataset_train = load_data("output/train")
     dataset_test = load_data("output/test")
@@ -52,8 +52,8 @@ def get_data_split(folder_path, batch_size):
     print("the length of train data: ", len(dataset_train))
     print("Length of test and validation data: ", len(dataset_val))
     data_iter = iter(train_set)
-    images,labels = data_iter.next()
-    fig = plt.figure(figsize=(25,4))
+    images, labels = data_iter.next()
+    fig = plt.figure(figsize=(25, 4))
     print("Instance of Loaded Samples")
     classes = ['Cloth Mask', 'FFP2 Mask','FFP2 Mask With Valve','Surgical Mask', 'Without Mask']
     

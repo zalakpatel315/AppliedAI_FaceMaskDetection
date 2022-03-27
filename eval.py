@@ -15,10 +15,10 @@ def generate_sample_preds(test_load, model, path):
 
     fig = plt.figure(figsize=(25, 4))
     classes = ['Cloth Mask', 'FFP2 Mask', 'FFP2 Mask With Valve', 'Surgical Mask', 'Without Mask']
-    for idx in np.arange(20):
-        ax = fig.add_subplot(2, 10, idx + 1, xticks=[], yticks=[])
+    for idx in np.arange(100):
+        ax = fig.add_subplot(10, 10, idx + 1, xticks=[], yticks=[])
         ax.set_title(classes[preds[idx]])
-        plt.imsave( path + classes[preds[idx]] + str(idx) + '.png',
+        plt.imsave(path + classes[preds[idx]] + str(idx) + '.png',
                    im_convert(images[idx]))
     Accuracy = accuracy_score(preds, labels)
     print("Accuracy of Current Batch: ", Accuracy)

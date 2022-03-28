@@ -39,7 +39,9 @@ def generate_sample_preds(test_load, model, path):
     print(report)
 
 if __name__== "__main__":
-    test_loader = load_data("/Users/jhanviarora/Desktop/Project/output/test/")
+    
+    currentDirectory = os.getcwd()
+    test_loader = load_data(currentDirectory + "/output/test/")
     test_loader = validation_loader(test_loader, 214)
-    model = torch.load('/Users/jhanviarora/Desktop/Project/output_models/ep15bs100.h5')
-    generate_sample_preds(test_loader, model, '/Users/jhanviarora/Desktop/Project/Output_Predictions/')
+    model = torch.load(currentDirectory + '/output_models/ep15bs100.h5')
+    generate_sample_preds(test_loader, model, currentDirectory + '/Output_Predictions/')
